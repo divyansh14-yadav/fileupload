@@ -18,8 +18,10 @@ const upload = multer({
 }).single('Photo')
 
 //post method..................
-// authrouter.use('/', express.static('assets/images'));
-authrouter.use('/',express.static(path.join('assets/images')));
+// authrouter.use('/', express.static(path.join+('assets/images')));
+// authrouter.use('/post',express.static(path.join + ('assets/images')));
+authrouter.use(express.static(path.resolve('assets/images')));
+
 authrouter.post("/post", async (req, res) => {
   upload(req, res, async (err) => {
 
